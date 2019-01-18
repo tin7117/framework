@@ -27,9 +27,11 @@ if (! function_exists('auth')) {
      *
      * @return Clarity\Support\Auth\Auth
      */
-    function auth()
+    function auth($guard = null)
     {
-        return di()->get('auth');
+        $auth = di()->get('auth');
+        $auth->guard($guard);
+        return $auth;
     }
 }
 
