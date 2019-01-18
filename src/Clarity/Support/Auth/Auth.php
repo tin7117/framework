@@ -21,9 +21,10 @@ class Auth
      * Attempt to login using the provided records and the password field.
      *
      * @param  array $records
+     * @param   bool    $remember
      * @return bool
      */
-    public function attempt($records)
+    public function attempt($records, $remember = false)
     {
         $password_field = config()->app->auth->{$this->guard}->password_field;
 
