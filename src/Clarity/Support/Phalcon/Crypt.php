@@ -49,7 +49,7 @@ class Crypt extends BaseCrypt
             throw new Exception('openssl extension is required');
         }
 
-        if ($encrypt_key = $key === null) {
+        if (empty($encrypt_key = $key)) {
             $encrypt_key = $this->getKey();
         }
 
@@ -93,7 +93,7 @@ class Crypt extends BaseCrypt
             throw new Exception('openssl extension is required');
         }
 
-        if ($decrypt_key = $key === null) {
+        if (empty($decrypt_key = $key)) {
             $decrypt_key = $this->_key;
         }
 

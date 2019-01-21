@@ -30,7 +30,7 @@ class Controller extends BaseController
             $this->initMiddleware();
         }
 
-        $this->middlewareHandler();
+        return $this->middlewareHandler();
     }
 
     /**
@@ -93,6 +93,6 @@ class Controller extends BaseController
 
         # register all the middlewares
         $command_bus = new CommandBus($instances);
-        $command_bus->handle($this->request);
+        return $command_bus->handle($this->request);
     }
 }

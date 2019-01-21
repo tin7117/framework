@@ -159,9 +159,7 @@ class Auth
     {
         $expire = config("app.auth.{$this->guard}.expire");
         $expire = time() + ($expire ?: 60) * 60;
-        $user->remember_token = $this->getDI()
-            ->get('crypt')
-            ->encrypt($expire);
+        $user->remember_token = resolve('crypt')->encrypt($expire);
         if ($user->save() != false) {
             resolve('cookies')->set($this->guard . '_RMU', $user->id, $expire);
             resolve('cookies')->set($this->guard . '_RMT', $user->remember_token, $expire);
