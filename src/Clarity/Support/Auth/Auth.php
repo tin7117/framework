@@ -121,7 +121,7 @@ class Auth
      */
     public function user()
     {
-        return resolve('session')->get('session')->get($this->guard . '_user');
+        return resolve('session')->get($this->guard . '_user');
     }
     
     /**
