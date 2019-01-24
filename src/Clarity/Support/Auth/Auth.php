@@ -125,6 +125,16 @@ class Auth
     }
     
     /**
+     * Get the login username to be used by the controller.
+     *
+     * @return string
+     */
+    public function username()
+    {
+        return 'email';
+    }
+    
+    /**
      * Save the User data into the Session.
      *
      * @param object $user
